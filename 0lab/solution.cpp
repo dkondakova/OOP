@@ -10,11 +10,10 @@ using namespace std;
 
 class Word {
     public:
-        Word(string word, int fr) {
-            str = word;
-            freq = fr;
-        }
-        const string get_str() {
+        Word(string word, int fr):
+            str(word), freq(fr)
+        {}
+        const string get_str() const {
             return str;
         }
         const int get_freq() const {
@@ -30,7 +29,7 @@ bool operator<(Word const &a, Word const &b) {
 }
 
 int read_in(map<string, int>& mp, const string fname) {
-    ifstream fin(fname.c_str(), ifstream::in);
+    ifstream fin(fname);
     if (!fin.is_open()) {
         throw "Unable to open input file: " + fname;
     }
@@ -56,12 +55,11 @@ int read_in(map<string, int>& mp, const string fname) {
         n++;
     }
 
-    fin.close();
     return n;
 }
 
  void write_out(const int n, const vector<Word>& v, const string fname) {
-    ofstream fout(fname.c_str());
+    ofstream fout(fname);
     if (!fout.is_open()) {
         throw "Unable to open or create output file: " + fname;
     }
@@ -69,8 +67,6 @@ int read_in(map<string, int>& mp, const string fname) {
     for(auto it : v) {
         fout << it.get_str() << "," << it.get_freq() <<"," << float(it.get_freq()) / n * 100 << "%" << endl;
     }
-
-    fout.close();
 }
 
 int main(int argc, char **argv) {
@@ -81,14 +77,11 @@ int main(int argc, char **argv) {
 
         vector <Word> v;
         for (auto it : mp) {
-            Word word(it.first, it.second);
-            v.push_back(word);
+            v.push_back(Word(it.first, it.second));
         }
         sort(v.begin(), v.end());
 
         write_out(n, v, argv[2]);
-
-        mp.clear();
     } catch(string error) {
         cerr << "Exception: " << error << endl;
     }
