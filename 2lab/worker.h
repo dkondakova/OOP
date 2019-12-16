@@ -39,7 +39,7 @@ private:
 class Readfile: public Worker {
 public:
         Readfile(IWorker::ID id, std::vector<std::string>& p):
-                Worker{id, p, "readfile"}
+                Worker(id, p, "readfile")
         {
             if (p.size() != 1) {
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
@@ -51,7 +51,7 @@ public:
 class Writefile: public Worker {
 public:
         Writefile(IWorker::ID id, std::vector<std::string>& p):
-                Worker{id, p, "writefile"}
+                Worker(id, p, "writefile")
         {
             if (p.size() != 1) {
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
@@ -63,7 +63,7 @@ public:
 class Grep: public Worker {
 public:
         Grep(IWorker::ID id, std::vector<std::string>& p):
-                Worker{id, p, "grep"}
+                Worker(id, p, "grep")
         {
             if (p.size() != 1) {
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
@@ -75,7 +75,7 @@ public:
 class Sort: public Worker {
 public:
         Sort(IWorker::ID id, std::vector<std::string>& p):
-                Worker{id, p, "sort"}
+                Worker(id, p, "sort")
         {
             if (p.size() != 0) {
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
@@ -87,7 +87,7 @@ public:
 class Replace: public Worker {
 public:
         Replace(IWorker::ID id, std::vector<std::string>& p):
-                Worker{id, p, "replace"}
+                Worker(id, p, "replace")
         {
             if (p.size() != 2) {
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
@@ -99,7 +99,7 @@ public:
 class Dump: public Worker {
 public:
         Dump(IWorker::ID id, std::vector<std::string>& p):
-                Worker{id, p, "dump"}
+                Worker(id, p, "dump")
         {
             if (p.size() != 1) {
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
