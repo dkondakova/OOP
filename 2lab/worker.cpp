@@ -61,7 +61,6 @@ TData Replace::execute(TData &text) {
                 w1_pos = it.find(params[0]);
             }
         }
-    	//std::copy(text.begin(), text.end(), std::ostream_iterator<std::string>(ofs, "\n"));
 	return res;
 }
 
