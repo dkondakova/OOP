@@ -17,8 +17,8 @@ public:
 	Parser(const std::string& wf, const std::string& in, const std::string& out):
 		wf_fname(wf), in_fname(in), out_fname(out)
 	{};
-	virtual std::vector<IWorker*> get_workers() const;
-	virtual std::vector<IWorker::ID> get_program() const;
+	std::vector<IWorker*> get_workers() const override;
+	std::vector<IWorker::ID> get_program() const override;
 
 private:
 	IWorker* parse_block(std::string bs) const;

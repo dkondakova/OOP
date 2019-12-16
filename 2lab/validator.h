@@ -9,6 +9,6 @@ public:
 };
 
 class Validator: public IValidator {
-        virtual void validate_workers(const std::vector<IWorker*>&);
-        virtual void validate_program(const std::vector<IWorker*>&, const std::vector<IWorker::ID>&);
+        void validate_workers(const std::vector<IWorker*>&) override;
+        void validate_program(const std::vector<IWorker*>&, const std::vector<IWorker::ID>&) override;
 };

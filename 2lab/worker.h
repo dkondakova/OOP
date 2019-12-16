@@ -20,10 +20,10 @@ public:
 	Worker(IWorker::ID id, std::vector<std::string>& p, std::string n):
 		params(p), ident(id), nam(n)
 	{}
-	virtual IWorker::ID id() const {
+	IWorker::ID id() const override {
 		return ident;
 	}
-        virtual std::string name() const {
+        std::string name() const override {
                 return nam;
         }
 	virtual TData execute(TData& input) override = 0;
@@ -45,7 +45,7 @@ public:
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
             }
         }
-	virtual TData execute(TData& text) override;
+	TData execute(TData& text) override;
 };
 
 class Writefile: public Worker {
@@ -57,7 +57,7 @@ public:
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
             }
         }
-	virtual TData execute(TData& text) override;
+	TData execute(TData& text) override;
 };
 
 class Grep: public Worker {
@@ -69,7 +69,7 @@ public:
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
             }
         }
-	virtual TData execute(TData& text) override;
+	TData execute(TData& text) override;
 };
 
 class Sort: public Worker {
@@ -81,7 +81,7 @@ public:
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
             }
         }
-	virtual TData execute(TData& text) override;
+	TData execute(TData& text) override;
 };
 
 class Replace: public Worker {
@@ -93,7 +93,7 @@ public:
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
             }
         }
-	virtual TData execute(TData& text) override;
+	TData execute(TData& text) override;
 };
 
 class Dump: public Worker {
@@ -105,5 +105,5 @@ public:
                 throw "Invalid number of parameters in " + std::to_string(id) + " block";
             }
         }
-	virtual TData execute(TData& text) override;
+	TData execute(TData& text) override;
 };

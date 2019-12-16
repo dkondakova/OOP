@@ -7,7 +7,6 @@ OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=workflow
 
 all: $(HEADERS) $(SOURCES) $(EXECUTABLE)
-	rm -rf *o
 
 
 $(EXECUTABLE): $(OBJECTS)

@@ -11,5 +11,5 @@ public:
 
 class Executor: public IExecutor {
 public:
-	virtual void execute(const std::vector<IWorker*>&, const std::vector<IWorker::ID>&) const;
+	void execute(const std::vector<IWorker*>&, const std::vector<IWorker::ID>&) const override;
 };
