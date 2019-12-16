@@ -53,15 +53,14 @@ TData Sort::execute(TData &text) {
 }
 
 TData Replace::execute(TData &text) {
-	std::vector<std::string> res = text;
-        for (auto it : res) {
+        for (auto it : text) {
             auto w1_pos = it.find(params[0]);
             while (w1_pos != std::string::npos) {
                 it.replace(it.begin() + w1_pos, it.begin() + w1_pos + params[0].size(), params[1]);
                 w1_pos = it.find(params[0]);
             }
         }
-	return res;
+	return text;
 }
 
 TData Dump::execute(TData &text) {
