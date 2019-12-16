@@ -18,7 +18,7 @@ IWorker* make_worker(IWorker::ID, std::string, std::vector<std::string>&);
 class Worker: public IWorker {
 public:
 	Worker(IWorker::ID id, std::vector<std::string>& p, std::string n):
-		params{p}, ident{id}, nam{n}
+		params(p), ident(id), nam(n)
 	{}
 	virtual IWorker::ID id() const {
 		return ident;
